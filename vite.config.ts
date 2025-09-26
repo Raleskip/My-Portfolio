@@ -4,6 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
+  base: '/My-Portfolio/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -39,7 +40,7 @@
         'figma:asset/54cc1521b00d47b6a39ee3f53329a3b4a9fce30f.png': path.resolve(__dirname, './src/assets/54cc1521b00d47b6a39ee3f53329a3b4a9fce30f.png'),
         'figma:asset/5099bf468ca50c7a27ff649c82b1d5a1fb1832c1.png': path.resolve(__dirname, './src/assets/5099bf468ca50c7a27ff649c82b1d5a1fb1832c1.png'),
         'figma:asset/454b08000c9f7dbe0b399ec36e9e5736584ee84b.png': path.resolve(__dirname, './src/assets/454b08000c9f7dbe0b399ec36e9e5736584ee84b.png'),
-        'figma:asset/448c38470bc4d86f60b681b68a450460d4afcdb5.png': path.resolve(__dirname, './src/assets/448c38470bc4d86f60b681b68a450460d4afcdb5.png'),
+        // removed alias for oversized asset that was purged from repo history
         'figma:asset/3075155442d7066eb8a10f139f7e0e0aa37f2db5.png': path.resolve(__dirname, './src/assets/3075155442d7066eb8a10f139f7e0e0aa37f2db5.png'),
         'figma:asset/2e96444eb48f96b3d2b4476f56b965017bbea4f7.png': path.resolve(__dirname, './src/assets/2e96444eb48f96b3d2b4476f56b965017bbea4f7.png'),
         'figma:asset/25f08c73a5dc768799e80deb0018bcb115039e17.png': path.resolve(__dirname, './src/assets/25f08c73a5dc768799e80deb0018bcb115039e17.png'),
