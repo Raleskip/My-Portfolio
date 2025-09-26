@@ -1,0 +1,135 @@
+{
+  "name": "raleskip-portfolio",
+  "description": "Raleskip Portfolio - Aayush Pawar | Digital Marketing Expert & AI Innovation Leader",
+  "version": "2.0.0",
+  "author": {
+    "name": "Aayush Pawar",
+    "email": "apdontmailme@gmail.com",
+    "url": "https://raleskip.vercel.app"
+  },
+  "keywords": [
+    "portfolio",
+    "digital-marketing",
+    "ai-innovation",
+    "healthcare-marketing",
+    "product-marketing",
+    "jio-platforms",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "framer-motion"
+  ],
+  "homepage": "https://raleskip.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raleskip/portfolio.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "npm run clean && npm run type-check && vite build",
+    "build:analyze": "npm run build && npx vite-bundle-analyzer dist/stats.html",
+    "preview": "vite preview --host",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "test": "echo \"No tests specified\" && exit 0",
+    "deploy": "npm run build && vercel --prod",
+    "deploy:preview": "npm run build && vercel",
+    "deploy:all": "./scripts/deploy.sh --production",
+    "deploy:vercel": "./scripts/deploy.sh --vercel --production",
+    "deploy:netlify": "./scripts/deploy.sh --netlify --production",
+    "deploy:github": "./scripts/deploy.sh --github-pages",
+    "setup:deployment": "./scripts/setup-deployment.sh",
+    "check:deployment": "curl -f https://raleskip.vercel.app && echo \"✅ Deployment is live\"",
+    "postbuild": "npm run generate-sitemap",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "start": "npm run preview",
+    "prepare": "husky install || echo 'Husky not installed'",
+    "precommit": "lint-staged",
+    "size-check": "npm run build && bundlesize",
+    "audit:security": "npm audit --audit-level moderate",
+    "deps:update": "npm update && npm audit fix",
+    "deps:check": "npm outdated"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.16.16",
+    "lucide-react": "^0.292.0",
+    "sonner": "^1.2.4",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0",
+    "react-hook-form": "^7.55.0",
+    "emailjs-com": "^3.2.0",
+    "@emailjs/browser": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@types/node": "^20.8.10",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitejs/plugin-react": "^4.1.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "bundlesize": "^0.18.1",
+    "terser": "^5.24.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^4.0.0-alpha.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/assets/*.js",
+      "maxSize": "500kb",
+      "compression": "gzip"
+    },
+    {
+      "path": "./dist/assets/*.css",
+      "maxSize": "50kb",
+      "compression": "gzip"
+    }
+  ],
+  "volta": {
+    "node": "18.18.0",
+    "npm": "9.8.1"
+  }
+}

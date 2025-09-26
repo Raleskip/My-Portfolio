@@ -1,0 +1,121 @@
+# 🌊 Raleskip Portfolio - Netlify Configuration
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+  base = "."
+
+[build.environment]
+  NODE_ENV = "production"
+  VITE_APP_VERSION = "2.1.0"
+  VITE_BUILD_DATE = "2025-01-23"
+  VITE_DEPLOYMENT_PLATFORM = "netlify"
+  NODE_VERSION = "18.18.0"
+  NPM_VERSION = "9.8.1"
+
+# SPA Routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# API Redirects (if needed in future)
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Domain Redirects
+[[redirects]]
+  from = "https://raleskip.netlify.com/*"
+  to = "https://raleskip.netlify.app/:splat"
+  status = 301
+  force = true
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Asset Caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML Caching
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Manifest Caching
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Plugin Configuration
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  [plugins.inputs]
+    baseUrl = "https://raleskip.netlify.app"
+    
+[[plugins]]
+  package = "netlify-plugin-lighthouse"
+  [plugins.inputs]
+    audits = ["accessibility", "best-practices", "performance", "seo"]
+
+# Form Processing (if needed)
+[forms]
+  spam_filter = true
+
+# Functions (if needed in future)
+[functions]
+  directory = "netlify/functions"
