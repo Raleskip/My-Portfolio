@@ -1,0 +1,77 @@
+# Raleskip Portfolio - Production Robots.txt
+# Digital Marketing Expert & AI Innovation Leader - Aayush Pawar
+# https://www.raleskip.com
+
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block unnecessary crawlers that could affect performance
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Allow search engine image crawlers
+User-agent: Googlebot-Image
+Allow: /icons/
+Allow: /screenshots/
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.svg
+Allow: *.webp
+
+# Disallow service worker and manifest from indexing (but allow access)
+Disallow: /sw.js
+Disallow: /netlify/
+Disallow: /api/
+Disallow: /_netlify/
+
+# Allow important files
+Allow: /manifest.json
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Sitemap location
+Sitemap: https://www.raleskip.com/sitemap.xml
+
+# Additional sitemaps (if applicable)
+Sitemap: https://www.raleskip.com/sitemap-projects.xml
+Sitemap: https://www.raleskip.com/sitemap-images.xml
+
+# Cache directives for crawlers
+# Request crawlers to respect cache headers
+# and crawl responsibly to maintain site performance

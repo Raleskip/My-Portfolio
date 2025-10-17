@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - Raleskip Portfolio | Aayush Pawar</title>
+  <meta name="description" content="You're currently offline. Some content from Raleskip Portfolio has been saved for offline viewing.">
+  <meta name="theme-color" content="#10b981">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: #000000;
+      --foreground: #ffffff;
+      --primary: #10b981;
+      --secondary: #06b6d4;
+      --muted: #1a1a1a;
+      --border: #2a2a2a;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      line-height: 1.6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.06) 0%, var(--background) 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .offline-container {
+      max-width: 480px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .offline-icon {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .logo-section {
+      margin-bottom: 2rem;
+    }
+
+    .brand-logo {
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-style: italic;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-tagline {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      opacity: 0.85;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.01em;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn-secondary {
+      background: var(--muted);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: #2a2a2a;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .features {
+      text-align: left;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .features-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin: 0.75rem 0;
+      opacity: 0.8;
+      font-size: 0.875rem;
+      padding: 0.5rem;
+      background: var(--muted);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .feature::before {
+      content: "✓";
+      margin-right: 0.75rem;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .status-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      background: #ef4444;
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.3; }
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 640px) {
+      .offline-container {
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+      
+      .offline-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .brand-logo {
+        font-size: 2rem;
+      }
+      
+      h1 {
+        font-size: 1.75rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode */
+    @media (prefers-contrast: high) {
+      :root {
+        --background: #000000;
+        --foreground: #ffffff;
+        --primary: #00ff00;
+        --border: #ffffff;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="offline-container">
+    <div class="logo-section">
+      <div class="brand-logo">RALESKIP</div>
+      <div class="brand-tagline">Digital Marketing Expert & AI Innovation Leader</div>
+    </div>
+    
+    <div class="offline-icon">🌐</div>
+    
+    <h1>You're Offline</h1>
+    
+    <p>
+      Don't worry! Some content from Aayush Pawar's portfolio has been cached and is available for offline viewing. 
+      You can still explore previously loaded sections.
+    </p>
+    
+    <div class="action-buttons">
+      <button class="btn" onclick="window.location.reload()" aria-label="Retry connection">
+        <span>🔄</span>
+        Try Again
+      </button>
+      
+      <a href="/" class="btn btn-secondary" aria-label="Go to homepage">
+        <span>🏠</span>
+        Go Home
+      </a>
+    </div>
+    
+    <div class="features">
+      <div class="features-title">Available Offline</div>
+      <div class="feature">Portfolio overview and navigation</div>
+      <div class="feature">Previously viewed project details</div>
+      <div class="feature">Core skills and experience data</div>
+      <div class="feature">Cached images and assets</div>
+      <div class="feature">Professional contact information</div>
+    </div>
+  </div>
+  
+  <div class="status-bar">
+    <div class="status-indicator" aria-hidden="true"></div>
+    <span>Offline Mode • Will sync when connection is restored</span>
+  </div>
+
+  <script>
+    // Check online status
+    function updateConnectionStatus() {
+      const statusBar = document.querySelector('.status-bar')
+      const indicator = document.querySelector('.status-indicator')
+      
+      if (navigator.onLine) {
+        statusBar.style.display = 'none'
+        window.location.reload()
+      } else {
+        statusBar.style.display = 'flex'
+        indicator.style.background = '#ef4444'
+      }
+    }
+
+    // Listen for online/offline events
+    window.addEventListener('online', updateConnectionStatus)
+    window.addEventListener('offline', updateConnectionStatus)
+
+    // Initial check
+    updateConnectionStatus()
+
+    // Accessibility: Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (e.target.classList.contains('btn')) {
+          e.target.click()
+        }
+      }
+    })
+
+    // Analytics for offline usage (will be sent when online)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.ready.then(function(registration) {
+        if (registration.active) {
+          registration.active.postMessage({
+            type: 'OFFLINE_PAGE_VIEW',
+            url: window.location.href,
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent
+          })
+        }
+      })
+    }
+
+    // Performance monitoring
+    window.addEventListener('load', function() {
+      console.log('[Offline Page] Loaded successfully')
+      
+      // Log offline page performance
+      if (window.performance && window.performance.timing) {
+        const timing = window.performance.timing
+        const loadTime = timing.loadEventEnd - timing.navigationStart
+        console.log(`[Offline Page] Load time: ${loadTime}ms`)
+      }
+    })
+  </script>
+</body>
+</html>

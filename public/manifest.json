@@ -1,0 +1,180 @@
+{
+  "name": "Raleskip Portfolio - Aayush Pawar | Digital Marketing Expert & AI Innovation Leader",
+  "short_name": "Raleskip Portfolio",
+  "description": "Aayush Pawar - Digital First Marketer, AI Specialist & Creative Visionary with 9+ years expertise in healthcare marketing, brand campaigns, and technology innovation at Jio Platforms Limited.",
+  "version": "1.0.0",
+  "author": "Aayush Pawar",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "theme_color": "#10b981",
+  "background_color": "#000000",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "portfolio", "marketing"],
+  "shortcuts": [
+    {
+      "name": "About Aayush",
+      "short_name": "About",
+      "description": "Learn about Aayush Pawar's background and expertise",
+      "url": "/#about",
+      "icons": [
+        {
+          "src": "/icons/about-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Skills & Expertise",
+      "short_name": "Skills", 
+      "description": "Explore core competencies and technical skills",
+      "url": "/#skills",
+      "icons": [
+        {
+          "src": "/icons/skills-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Professional Journey",
+      "short_name": "Journey",
+      "description": "View career timeline and achievements",
+      "url": "/#journey",
+      "icons": [
+        {
+          "src": "/icons/journey-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Projects Portfolio",
+      "short_name": "Projects",
+      "description": "Browse innovative marketing projects and campaigns",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "/icons/projects-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Contact & Collaboration",
+      "short_name": "Contact",
+      "description": "Get in touch for partnerships and opportunities",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/icons/contact-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Raleskip Portfolio Home Page - Desktop View"
+    },
+    {
+      "src": "/screenshots/mobile-home.png",
+      "sizes": "360x640",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Raleskip Portfolio Home Page - Mobile View"
+    },
+    {
+      "src": "/screenshots/desktop-projects.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Projects Showcase - Desktop View"
+    },
+    {
+      "src": "/screenshots/mobile-contact.png",
+      "sizes": "360x640",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Contact Page - Mobile View"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/#contact?action=email&to=%s"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://www.raleskip.com"
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

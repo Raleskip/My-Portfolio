@@ -1,0 +1,1001 @@
+@custom-variant light (&:not(.dark *));
+
+:root {
+  --font-size: 16px;
+  /* Bold Dark Theme Colors - Emerald Focus */
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --popover: #0a0a0a;
+  --popover-foreground: #ffffff;
+  --primary: #10b981;
+  --primary-foreground: #000000;
+  --secondary: #111111;
+  --secondary-foreground: #e5e7eb;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --accent: #10b981;
+  --accent-foreground: #000000;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a2a;
+  --input: #111111;
+  --input-background: #0a0a0a;
+  --switch-background: #2a2a2a;
+  --font-weight-medium: 600;
+  --font-weight-normal: 500;
+  --ring: #10b981;
+  --chart-1: #10b981;
+  --chart-2: #06b6d4;
+  --chart-3: #f59e0b;
+  --chart-4: #ef4444;
+  --chart-5: #8b5cf6;
+  --radius: 1rem;
+  
+  /* Bold Dark Neumorphism Variables */
+  --neuro-base: #0a0a0a;
+  --neuro-light: #1a1a1a;
+  --neuro-dark: #000000;
+  --neuro-shadow-light: rgba(26, 26, 26, 0.9);
+  --neuro-shadow-dark: rgba(0, 0, 0, 0.9);
+  
+  /* Bold Enhanced Gradients - Emerald Focus */
+  --gradient-cosmic: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-aurora: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --gradient-sunset: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  --gradient-ocean: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  --gradient-forest: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  --gradient-fire: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --gradient-ice: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+  --gradient-royal: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  --gradient-neon: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #f59e0b 100%);
+}
+
+.light {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #f8fafc;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #475569;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #8b5cf6;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #f8fafc;
+  --input-background: #ffffff;
+  --switch-background: #e2e8f0;
+  --ring: #8b5cf6;
+  
+  /* Light Neumorphism */
+  --neuro-base: #f0f0f3;
+  --neuro-light: #ffffff;
+  --neuro-dark: #d1d1d4;
+  --neuro-shadow-light: rgba(255, 255, 255, 0.9);
+  --neuro-shadow-dark: rgba(163, 177, 198, 0.6);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    font-feature-settings: 'liga', 'kern';
+    perspective: 1200px;
+    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.08) 0%, var(--background) 70%);
+    background-attachment: fixed;
+    letter-spacing: 0.01em;
+  }
+  
+  /* Dark Theme Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--neuro-base);
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 4px rgba(139, 92, 246, 0.2), 
+                inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #7c3aed, #0891b2);
+  }
+}
+
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--foreground);
+      letter-spacing: -0.015em;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--foreground);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.875rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--foreground);
+      letter-spacing: -0.005em;
+    }
+
+    h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--foreground);
+      letter-spacing: 0em;
+    }
+
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.87);
+      letter-spacing: 0.01em;
+    }
+
+    label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--foreground);
+    }
+
+    button {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.015em;
+    }
+
+    input {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--foreground);
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* ENHANCED DARK NEUMORPHISM SYSTEM */
+
+/* Core Dark Neumorphism Classes */
+.neuro-base {
+  background: var(--neuro-base);
+  border-radius: 20px;
+  box-shadow: 
+    12px 12px 24px var(--neuro-shadow-dark),
+    -12px -12px 24px var(--neuro-shadow-light);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.neuro-inset {
+  background: var(--neuro-base);
+  border-radius: 20px;
+  box-shadow: 
+    inset 8px 8px 16px var(--neuro-shadow-dark),
+    inset -8px -8px 16px var(--neuro-shadow-light);
+  border: 1px solid rgba(139, 92, 246, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.neuro-flat {
+  background: var(--neuro-base);
+  border-radius: 16px;
+  box-shadow: 
+    6px 6px 12px var(--neuro-shadow-dark),
+    -6px -6px 12px var(--neuro-shadow-light);
+  border: 1px solid rgba(139, 92, 246, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.neuro-pressed {
+  background: var(--neuro-base);
+  border-radius: 20px;
+  box-shadow: 
+    inset 6px 6px 12px var(--neuro-shadow-dark),
+    inset -6px -6px 12px var(--neuro-shadow-light);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  transform: scale(0.98);
+}
+
+.neuro-floating {
+  background: var(--neuro-base);
+  border-radius: 25px;
+  box-shadow: 
+    15px 15px 30px var(--neuro-shadow-dark),
+    -15px -15px 30px var(--neuro-shadow-light),
+    0 0 0 1px rgba(139, 92, 246, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.neuro-floating:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    20px 20px 40px var(--neuro-shadow-dark),
+    -20px -20px 40px var(--neuro-shadow-light),
+    0 15px 40px rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Enhanced Dark Neumorphism Buttons */
+.neuro-btn {
+  background: var(--neuro-base);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 16px;
+  color: var(--foreground);
+  font-weight: 600;
+  padding: 14px 28px;
+  cursor: pointer;
+  box-shadow: 
+    8px 8px 16px var(--neuro-shadow-dark),
+    -8px -8px 16px var(--neuro-shadow-light);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.neuro-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.1) 0%, 
+    transparent 50%, 
+    rgba(6, 182, 212, 0.1) 100%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neuro-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    12px 12px 24px var(--neuro-shadow-dark),
+    -12px -12px 24px var(--neuro-shadow-light),
+    0 8px 24px rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.neuro-btn:hover::before {
+  opacity: 1;
+}
+
+.neuro-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    inset 4px 4px 8px var(--neuro-shadow-dark),
+    inset -4px -4px 8px var(--neuro-shadow-light);
+}
+
+/* Dark Neumorphic Input Fields */
+.neuro-input {
+  background: var(--neuro-base);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: var(--foreground);
+  font-size: 16px;
+  box-shadow: 
+    inset 6px 6px 12px var(--neuro-shadow-dark),
+    inset -6px -6px 12px var(--neuro-shadow-light);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  outline: none;
+}
+
+.neuro-input:focus {
+  box-shadow: 
+    inset 8px 8px 16px var(--neuro-shadow-dark),
+    inset -8px -8px 16px var(--neuro-shadow-light),
+    0 0 0 3px rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.neuro-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ADVANCED DARK GRADIENTS */
+
+/* Dark Animated Gradient Backgrounds */
+.gradient-aurora {
+  background: linear-gradient(-45deg, #8b5cf6, #06b6d4, #10b981, #8b5cf6);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.gradient-cosmic {
+  background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+.gradient-ocean {
+  background: linear-gradient(-45deg, #06b6d4, #0891b2, #0e7490, #155e75);
+  background-size: 400% 400%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+.gradient-sunset {
+  background: linear-gradient(-45deg, #f59e0b, #ef4444, #dc2626, #b91c1c);
+  background-size: 400% 400%;
+  animation: gradient-shift 18s ease infinite;
+}
+
+.gradient-forest {
+  background: linear-gradient(-45deg, #10b981, #059669, #047857, #065f46);
+  background-size: 400% 400%;
+  animation: gradient-shift 16s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Dark Mesh Gradients */
+.gradient-mesh-dark {
+  background: 
+    radial-gradient(ellipse 70% 70% at 30% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 70% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 80% at 10% 10%, rgba(16, 185, 129, 0.1) 0%, transparent 60%),
+    var(--background);
+}
+
+/* Bold Dark Text Gradients */
+.text-gradient-neon {
+  background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.text-gradient-fire {
+  background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #eab308 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.text-gradient-ocean {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* MINIMAL KINETIC TYPOGRAPHY - Slower and Cleaner */
+
+/* Slow, Gentle Kinetic Typography Animations */
+@keyframes kinetic-glow-slow {
+  0%, 100% {
+    transform: scale(1) rotateY(0deg);
+    opacity: 0.8;
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.02) rotateY(2deg);
+    opacity: 1;
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes kinetic-neon-slow {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+    transform: translateY(0px);
+  }
+  33% {
+    filter: hue-rotate(60deg) brightness(1.1);
+    transform: translateY(-1px);
+  }
+  66% {
+    filter: hue-rotate(120deg) brightness(1.2);
+    transform: translateY(-2px);
+  }
+}
+
+/* Minimal Matrix Animation */
+@keyframes kinetic-matrix-slow {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  33% {
+    filter: hue-rotate(120deg) brightness(1.1);
+  }
+  66% {
+    filter: hue-rotate(240deg) brightness(1.2);
+  }
+}
+
+/* Very Subtle Glitch Animation */
+@keyframes kinetic-glitch-slow {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(1px, -1px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(-0.5px, 0.5px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(0.5px, -0.5px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.kinetic-glow-slow {
+  animation: kinetic-glow-slow 4s ease-in-out infinite;
+  display: inline-block;
+  will-change: transform, opacity, text-shadow;
+}
+
+.kinetic-neon-slow {
+  animation: kinetic-neon-slow 6s linear infinite;
+  display: inline-block;
+  font-weight: bold;
+  will-change: transform, filter, text-shadow;
+}
+
+.kinetic-matrix-slow {
+  animation: kinetic-matrix-slow 10s linear infinite;
+  display: inline-block;
+}
+
+.kinetic-glitch-slow {
+  animation: kinetic-glitch-slow 4s linear infinite;
+  display: inline-block;
+}
+
+/* Crystal Clear Kinetic Animation - Highly Visible */
+@keyframes kinetic-clear {
+  0%, 100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  25% {
+    transform: scale(1.01) translateY(-1px);
+    opacity: 1;
+    filter: brightness(1.1) hue-rotate(90deg);
+  }
+  50% {
+    transform: scale(1.02) translateY(-2px);
+    opacity: 1;
+    filter: brightness(1.2) hue-rotate(180deg);
+  }
+  75% {
+    transform: scale(1.01) translateY(-1px);
+    opacity: 1;
+    filter: brightness(1.1) hue-rotate(270deg);
+  }
+}
+
+.kinetic-clear {
+  animation: kinetic-clear 5s ease-in-out infinite;
+  display: inline-block;
+  font-weight: 600;
+  will-change: transform, opacity, text-shadow, filter;
+  letter-spacing: 0.02em;
+}
+
+/* Legacy Fast Animations for Other Components */
+@keyframes kinetic-glow {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.02);
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes kinetic-neon-pulse {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    filter: hue-rotate(90deg) brightness(1.1);
+  }
+  50% {
+    filter: hue-rotate(180deg) brightness(1.2);
+  }
+  75% {
+    filter: hue-rotate(270deg) brightness(1.1);
+  }
+}
+
+/* Matrix Animation for Hero Typography */
+@keyframes kinetic-matrix {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    filter: hue-rotate(90deg) brightness(1.1);
+  }
+  50% {
+    filter: hue-rotate(180deg) brightness(1.2);
+  }
+  75% {
+    filter: hue-rotate(270deg) brightness(1.1);
+  }
+}
+
+/* Glitch Animation for Hero Typography */
+@keyframes kinetic-glitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+  20% {
+    transform: translate(-8px, -2px);
+    filter: hue-rotate(180deg);
+  }
+  30% {
+    transform: translate(8px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  40% {
+    transform: translate(-2px, -8px);
+    filter: hue-rotate(360deg);
+  }
+  50% {
+    transform: translate(2px, 8px);
+    filter: hue-rotate(90deg);
+  }
+  60% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(180deg);
+  }
+  70% {
+    transform: translate(8px, -2px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(-8px, 2px);
+    filter: hue-rotate(360deg);
+  }
+  90% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(45deg);
+  }
+}
+
+.kinetic-glow {
+  animation: kinetic-glow 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.kinetic-neon-pulse {
+  animation: kinetic-neon-pulse 4s linear infinite;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.kinetic-matrix {
+  animation: kinetic-matrix 4s linear infinite;
+  display: inline-block;
+}
+
+.kinetic-glitch {
+  animation: kinetic-glitch 2s linear infinite;
+  display: inline-block;
+}
+
+/* Refined Bold Dark Theme Typography */
+.brand-text-dark {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.75rem;
+  background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: kinetic-neon-pulse 6s ease-in-out infinite;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* SPECIAL DARK EFFECTS */
+
+/* Dark Particle System */
+.particle-system-dark {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-system-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.3) 0%, transparent 30%),
+    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.3) 0%, transparent 30%);
+  animation: particle-float-dark 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes particle-float-dark {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.3;
+  }
+  33% { 
+    transform: translateY(-30px) rotate(120deg); 
+    opacity: 0.6;
+  }
+  66% { 
+    transform: translateY(-15px) rotate(240deg); 
+    opacity: 0.4;
+  }
+}
+
+/* Dark Glass Morphism */
+.glass-dark {
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(139, 92, 246, 0.1);
+}
+
+/* Sophisticated & Luxury Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-feature-settings: 'liga', 'kern';
+  letter-spacing: -0.01em;
+}
+
+.font-body {
+  font-family: 'Poppins', sans-serif;
+  font-feature-settings: 'liga', 'kern';
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'liga', 'kern';
+}
+
+/* Enhanced Dark Theme Components */
+.card-dark {
+  background: var(--neuro-base);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 16px;
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(26, 26, 26, 0.4),
+    inset 0 1px 0 rgba(139, 92, 246, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-dark:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.5),
+    -12px -12px 24px rgba(26, 26, 26, 0.5),
+    0 8px 32px rgba(139, 92, 246, 0.2),
+    inset 0 1px 0 rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Ultra-Smooth Dark Transitions */
+.ultra-smooth-dark {
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.spring-bounce-dark {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Dark Theme Specific Classes */
+.text-glow {
+  filter: brightness(1.2);
+}
+
+.text-glow-strong {
+  filter: brightness(1.4) contrast(1.2);
+}
+
+/* Refined Navigation Active States */
+.nav-link-active {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Page Transition Effects */
+.page-enter {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-30px) scale(1.02);
+  transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Bold Core Competency Colors */
+.text-strategic { 
+  color: #10b981;
+  font-weight: 700;
+}
+.text-marketing { 
+  color: #f59e0b;
+  font-weight: 700;
+}
+.text-innovation { 
+  color: #06b6d4;
+  font-weight: 700;
+}
+.text-technical { 
+  color: #8b5cf6;
+  font-weight: 700;
+}
+.text-leadership { 
+  color: #ef4444;
+  font-weight: 700;
+}
+.text-analytics { 
+  color: #ec4899;
+  font-weight: 700;
+}
+
+/* Loading Skeleton for Dark Theme */
+.skeleton-loading-dark {
+  background: linear-gradient(90deg, #0f0f0f 25%, #1a1a1a 50%, #0f0f0f 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer-dark 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-shimmer-dark {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Enhanced Focus States for Accessibility */
+.focus-visible:focus {
+  outline: 3px solid rgba(139, 92, 246, 0.6);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.2);
+}
+
+/* Accessibility Improvements for Dark Theme */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Performance GPU Acceleration */
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Dark Theme Utility Classes */
+.bg-dark-card { background: var(--card); }
+.bg-dark-muted { background: var(--muted); }
+.bg-dark-accent { background: var(--accent); }
+.text-dark-muted { color: var(--muted-foreground); }
+.border-dark { border-color: var(--border); }
+
+/* Elegant Typography Utilities */
+.text-elegant {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 1.2;
+}
+
+.text-elegant-bold {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.text-elegant-italic {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0em;
+  line-height: 1.2;
+}
+
+.text-refined {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+.text-refined-medium {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.text-refined-light {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+}
+
+/* Human-Centered Professional Headings */
+.heading-primary {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.heading-secondary {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.heading-tertiary {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+/* Refined Sophisticated Body Text */
+.body-elegant {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.body-refined {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.015em;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Luxury Accent Text */
+.text-luxury {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0em;
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #ffed4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
